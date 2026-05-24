@@ -1,5 +1,5 @@
 {
-  "name": "Creator Tools",
+  "name": "ReelStack",
   "description": "Creator toolkit with offline queue and smart background downloads",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
