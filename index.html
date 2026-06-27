@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Zain Mushtaq – CV</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #1a1a1a;
+    background: #d4d4d4;
+    line-height: 1.5;
+  }
+
+  #print-btn {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 999;
+    background: #2c2c2c;
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    font-size: 12px;
+    font-family: 'Arial', sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+  }
+  #print-btn:hover { background: #000; }
+
+  /* PAGE */
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    margin: 28px auto;
+    background: #fff;
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+
+  /* TOP HEADER */
+  .cv-top {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    background: #3a3a3a;
+    min-height: 130px;
+  }
+
+  /* photo cell */
+  .photo-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 14px;
+    background: #3a3a3a;
+  }
+  .photo-wrapper {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #888;
+    flex-shrink: 0;
+  }
+  .photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(100%);
+  }
+
+  /* name cell */
+  .name-cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 22px 28px;
+  }
+  .cv-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+  }
+  .cv-title {
+    font-size: 12px;
+    color: #bbb;
+    margin-top: 5px;
+    letter-spacing: 0.03em;
+  }
+
+  /* BODY COLUMNS */
+  .cv-body {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+  }
+
+  /* LEFT */
+  .sidebar {
+    background: #f0f0f0;
+    padding: 20px 16px 28px 16px;
+  }
+
+  .side-section { margin-bottom: 20px; }
+  .side-section:last-child { margin-bottom: 0; }
+
+  .side-heading {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #333;
+    border-bottom: 1.5px solid #aaa;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+  }
+
+  /* contact */
+  .contact-list { list-style: none; }
+  .contact-list li {
+    font-size: 10px;
+    color: #333;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .contact-list li .icon {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    fill: #555;
+  }
+  .contact-list li .text { word-break: break-all; }
+
+  /* skills */
+  .skills-list { list-style: none; }
+  .skills-list li {
+    font-size: 10px;
+    color: #333;
+    padding: 3px 0;
+    border-bottom: 1px dotted #ccc;
+    line-height: 1.4;
+  }
+  .skills-list li:last-child { border-bottom: none; }
+
+  /* languages */
+  .lang-item { margin-bottom: 7px; }
+  .lang-item .lang-name {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #111;
+  }
+  .lang-item .lang-level {
+    font-size: 9.5px;
+    color: #666;
+    margin-top: 1px;
+  }
+
+  /* RIGHT */
+  .main {
+    padding: 22px 26px 28px 22px;
+    border-left: 1px solid #ddd;
+  }
+
+  .main-section { margin-bottom: 18px; }
+  .main-section:last-child { margin-bottom: 0; }
+
+  .main-heading {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #222;
+    border-bottom: 1.5px solid #222;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  .summary-text {
+    font-size: 11px;
+    color: #333;
+    line-height: 1.65;
+  }
+
+  /* education (right side) */
+  .edu-item { margin-bottom: 13px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-degree {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.35;
+  }
+  .edu-inst {
+    font-size: 10.5px;
+    color: #444;
+    margin-top: 2px;
+    line-height: 1.35;
+  }
+  .edu-year {
+    font-size: 9.5px;
+    color: #888;
+    font-style: italic;
+    margin-top: 2px;
+  }
+  .edu-detail {
+    font-size: 10.5px;
+    color: #333;
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+  .edu-detail strong { color: #111; }
+
+  /* work */
+  .job { margin-bottom: 14px; }
+  .job:last-child { margin-bottom: 0; }
+  .job-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #111;
+  }
+  .job-company {
+    font-size: 11px;
+    color: #444;
+    margin-top: 1px;
+  }
+  .job-period {
+    font-size: 9.5px;
+    color: #888;
+    font-style: italic;
+    margin-top: 1px;
+    margin-bottom: 5px;
+  }
+  .job-duties { padding-left: 14px; }
+  .job-duties li {
+    font-size: 10.5px;
+    color: #333;
+    margin-bottom: 3px;
+    line-height: 1.5;
+  }
+
+  /* certs */
+  .cert-item { margin-bottom: 9px; }
+  .cert-item:last-child { margin-bottom: 0; }
+  .cert-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: #111;
+  }
+  .cert-org {
+    font-size: 10px;
+    color: #666;
+    margin-top: 1px;
+  }
+
+  .ref-text {
+    font-size: 10.5px;
+    color: #555;
+    font-style: italic;
+  }
+
+  /* PRINT */
+  @media print {
+    @page { size: A4; margin: 0; }
+    body { background: #fff; }
+    #print-btn { display: none !important; }
+    .page { width: 100%; margin: 0; }
+    .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #f0f0f0 !important; }
+    .cv-top { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #3a3a3a !important; }
+    .photo-cell { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #3a3a3a !important; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    body { background: #fff; }
+    .page { width: 100%; margin: 0; }
+  }
+  @media (max-width: 600px) {
+    .cv-top { grid-template-columns: 1fr; text-align: center; }
+    .photo-cell { padding: 20px 14px 10px; }
+    .cv-body { grid-template-columns: 1fr; }
+    .main { border-left: none; border-top: 1px solid #ddd; padding: 16px 14px; }
+    #print-btn { top: 8px; right: 8px; padding: 6px 10px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<button id="print-btn" onclick="window.print()">Print CV</button>
+
+<div class="page">
+
+  <!-- TOP HEADER -->
+  <div class="cv-top">
+    <div class="photo-cell">
+      <div class="photo-wrapper">
+        <img src="profile.jpg" alt="Profile Photo">
+      </div>
+    </div>
+    <div class="name-cell">
+      <h1 class="cv-name">Muhammad Zain Mushtaq</h1>
+      <p class="cv-title">BS Information Technology Graduate</p>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="cv-body">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- Contact -->
+      <div class="side-section">
+        <p class="side-heading">Contact Details</p>
+        <ul class="contact-list">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span class="text">zainmushtaq5439@gmail.com</span>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            <span class="text">03069750936</span>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+            <span class="text">Mouza Jungle Rang Ali Wala, Post Office Lar, Multan, Pakistan</span>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <span class="text">linkedin.com/in/muhammad-zain-mushtaq-ab54871b2</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Skills -->
+      <div class="side-section">
+        <p class="side-heading">Skills</p>
+        <ul class="skills-list">
+          <li>Microsoft Office</li>
+          <li>Inventory Management</li>
+          <li>ERP Systems</li>
+          <li>MIS Reporting</li>
+          <li>Data Entry &amp; Data Management</li>
+          <li>Documentation &amp; Record Keeping</li>
+          <li>Database Management</li>
+          <li>Computer Operations</li>
+          <li>IT Support</li>
+          <li>Software Installation</li>
+          <li>Software Support</li>
+          <li>Communication &amp; Teamwork</li>
+          <li>Problem Solving</li>
+        </ul>
+      </div>
+
+      <!-- Languages -->
+      <div class="side-section">
+        <p class="side-heading">Languages</p>
+        <div class="lang-item">
+          <p class="lang-name">Urdu</p>
+          <p class="lang-level">Native</p>
+        </div>
+        <div class="lang-item">
+          <p class="lang-name">English</p>
+          <p class="lang-level">Professional Working Proficiency</p>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- RIGHT MAIN -->
+    <main class="main">
+
+      <!-- Summary -->
+      <div class="main-section">
+        <p class="main-heading">Summary</p>
+        <p class="summary-text">Detail-oriented BS Information Technology graduate with strong skills in computer operations, inventory management, data handling, and business support functions.</p>
+      </div>
+
+      <!-- Education (moved here) -->
+      <div class="main-section">
+        <p class="main-heading">Education</p>
+
+        <div class="edu-item">
+          <p class="edu-degree">Bachelor of Science in Information Technology (BSIT)</p>
+          <p class="edu-inst">Bahauddin Zakariya University, Multan (via Legend College Multan)</p>
+          <p class="edu-year">2020 – 2025</p>
+          <p class="edu-detail">CGPA: <strong>3.50 / 4.00</strong> &nbsp;|&nbsp; Percentage: <strong>87%</strong> &nbsp;|&nbsp; Grade: <strong>A+</strong></p>
+          <p class="edu-detail" style="margin-top:4px;"><strong>Final Year Project:</strong> Multi-Disease Detection Using Artificial Intelligence and Flask</p>
+        </div>
+
+        <div class="edu-item">
+          <p class="edu-degree">Intermediate in Computer Science (ICS)</p>
+          <p class="edu-inst">City College of Science &amp; Commerce, Multan</p>
+        </div>
+      </div>
+
+      <!-- Work Experience -->
+      <div class="main-section">
+        <p class="main-heading">Work Experience</p>
+
+        <div class="job">
+          <p class="job-title">AI &amp; Chatbot Developer</p>
+          <p class="job-company">ABIT Consulting (Pvt.) Ltd.</p>
+          <p class="job-period">March 2025 – August 2025</p>
+          <ul class="job-duties">
+            <li>Developed AI-powered chatbot solutions.</li>
+            <li>Automated business workflows and reporting systems.</li>
+            <li>Supported database and system integration activities.</li>
+            <li>Worked with Python, APIs, and data processing systems.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <p class="job-title">Freelance Software Developer</p>
+          <p class="job-company">Self-Employed</p>
+          <p class="job-period">September 2023 – March 2025</p>
+          <ul class="job-duties">
+            <li>Developed software automation solutions.</li>
+            <li>Built database-driven applications.</li>
+            <li>Performed testing and system maintenance.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="main-section">
+        <p class="main-heading">Certifications</p>
+        <div class="cert-item">
+          <p class="cert-name">Programming Essentials in Python (PCAP)</p>
+          <p class="cert-org">Cisco Networking Academy</p>
+        </div>
+        <div class="cert-item">
+          <p class="cert-name">Advanced Python Programming</p>
+          <p class="cert-org">NAVTTC</p>
+        </div>
+        <div class="cert-item">
+          <p class="cert-name">Soft Skills Training Program</p>
+          <p class="cert-org">OEC &amp; ICMPD</p>
+        </div>
+      </div>
+
+      <!-- References -->
+      <div class="main-section">
+        <p class="main-heading">References</p>
+        <p class="ref-text">References available upon request</p>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+</body>
+</html>
