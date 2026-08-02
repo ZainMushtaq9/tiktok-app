@@ -4,294 +4,424 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Muhammad Zain Mushtaq – CV</title>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+ 
+ 
+ 
+ 
+ <style>
+ 
+ 
+ 
+ 
+ 
+ *, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #1a1a1a;
+  background: #d6eaf8;
+  line-height: 1.5;
+}
+
+#print-btn {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 999;
+  background: #0f4c81;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: 0.3s;
+}
+
+#print-btn:hover {
+  background: #0b3b63;
+}
+
+/* PAGE */
+.page {
+  width: 794px;
+  min-height: 1123px;
+  margin: 28px auto;
+  background: #fff;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* HEADER */
+.cv-top {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  background: #0f4c81;
+  min-height: 130px;
+}
+
+.photo-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 14px;
+  background: #0f4c81;
+}
+
+.photo-wrapper {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #ffffff;
+  flex-shrink: 0;
+}
+
+.photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(100%);
+}
+
+.name-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 22px 28px;
+}
+
+.cv-name {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .01em;
+  line-height: 1.15;
+}
+
+.cv-title {
+  font-size: 12px;
+  color: #d8e9f8;
+  margin-top: 5px;
+  letter-spacing: .03em;
+}
+
+/* BODY */
+.cv-body {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+}
+
+/* SIDEBAR */
+.sidebar {
+  background: #eaf4fd;
+  padding: 25px 20px 28px 30px;
+}
+
+.side-section {
+  margin-bottom: 20px;
+}
+
+.side-section:last-child {
+  margin-bottom: 0;
+}
+
+.side-heading {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: #0f4c81;
+  border-bottom: 2px solid #0f4c81;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+}
+
+/* CONTACT */
+.contact-list {
+  list-style: none;
+}
+
+.contact-list li {
+  font-size: 10px;
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.contact-list li .icon {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  fill: #0f4c81;
+}
+
+.contact-list li .text {
+  word-break: break-word;
+}
+
+/* SKILLS */
+.skills-list {
+  list-style: none;
+}
+
+.skills-list li {
+  font-size: 10px;
+  color: #333;
+  padding: 3px 0;
+  border-bottom: 1px dotted #b8d0e7;
+  line-height: 1.4;
+}
+
+.skills-list li:last-child {
+  border-bottom: none;
+}
+
+/* LANGUAGES */
+.lang-item {
+  margin-bottom: 7px;
+}
+
+.lang-name {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #0f4c81;
+}
+
+.lang-level {
+  font-size: 9.5px;
+  color: #666;
+  margin-top: 1px;
+}
+
+/* MAIN */
+.main {
+  padding: 22px 26px 28px 22px;
+  border-left: 1px solid #cfdfee;
+}
+
+.main-section {
+  margin-bottom: 18px;
+}
+
+.main-section:last-child {
+  margin-bottom: 0;
+}
+
+.main-heading {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #0f4c81;
+  border-bottom: 2px solid #0f4c81;
+  padding-bottom: 3px;
+  margin-bottom: 10px;
+}
+
+.summary-text {
+  font-size: 11px;
+  color: #333;
+  line-height: 1.65;
+}
+
+/* EDUCATION */
+.edu-item {
+  margin-bottom: 13px;
+}
+
+.edu-degree {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0f4c81;
+}
+
+.edu-inst {
+  font-size: 10.5px;
+  color: #444;
+  margin-top: 2px;
+}
+
+.edu-year {
+  font-size: 9.5px;
+  color: #777;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+.edu-detail {
+  font-size: 10.5px;
+  color: #333;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.edu-detail strong {
+  color: #0f4c81;
+}
+
+/* EXPERIENCE */
+.job {
+  margin-bottom: 14px;
+}
+
+.job-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0f4c81;
+}
+
+.job-company {
+  font-size: 11px;
+  color: #444;
+  margin-top: 1px;
+}
+
+.job-period {
+  font-size: 9.5px;
+  color: #777;
+  font-style: italic;
+  margin-top: 1px;
+  margin-bottom: 5px;
+}
+
+.job-duties {
+  padding-left: 14px;
+}
+
+.job-duties li {
+  font-size: 10.5px;
+  color: #333;
+  margin-bottom: 3px;
+  line-height: 1.5;
+}
+
+/* CERTIFICATES */
+.cert-item {
+  margin-bottom: 9px;
+}
+
+.cert-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0f4c81;
+}
+
+.cert-org {
+  font-size: 10px;
+  color: #666;
+  margin-top: 1px;
+}
+
+.ref-text {
+  font-size: 10.5px;
+  color: #555;
+  font-style: italic;
+}
+
+/* PRINT */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
 
   body {
-    font-family: 'Arial', sans-serif;
-    font-size: 13px;
-    color: #1a1a1a;
-    background: #d4d4d4;
-    line-height: 1.5;
+    background: #fff;
   }
 
   #print-btn {
-    position: fixed;
-    top: 14px;
-    right: 14px;
-    z-index: 999;
-    background: #2c2c2c;
-    color: #fff;
-    border: none;
-    padding: 8px 18px;
-    font-size: 12px;
-    font-family: 'Arial', sans-serif;
-    cursor: pointer;
-    letter-spacing: 0.04em;
+    display: none !important;
   }
-  #print-btn:hover { background: #000; }
 
-  /* PAGE */
   .page {
-    width: 794px;
-    min-height: 1123px;
-    margin: 28px auto;
-    background: #fff;
-    display: grid;
-    grid-template-rows: auto 1fr;
-  }
-
-  /* TOP HEADER */
-  .cv-top {
-    display: grid;
-    grid-template-columns: 210px 1fr;
-    background: #3a3a3a;
-    min-height: 130px;
-  }
-
-  /* photo cell */
-  .photo-cell {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 14px;
-    background: #3a3a3a;
-  }
-  .photo-wrapper {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid #888;
-    flex-shrink: 0;
-  }
-  .photo-wrapper img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-    filter: grayscale(100%);
+    margin: 0;
+    box-shadow: none;
   }
 
-  /* name cell */
-  .name-cell {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 22px 28px;
-  }
-  .cv-name {
-    font-size: 26px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.01em;
-    line-height: 1.15;
-  }
-  .cv-title {
-    font-size: 12px;
-    color: #bbb;
-    margin-top: 5px;
-    letter-spacing: 0.03em;
-  }
-
-  /* BODY COLUMNS */
-  .cv-body {
-    display: grid;
-    grid-template-columns: 210px 1fr;
-  }
-
-  /* LEFT */
   .sidebar {
-    background: #f0f0f0;
-    padding: 25px 20px 28px 30px;
+    background: #eaf4fd !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 
-  .side-section { margin-bottom: 20px; }
-  .side-section:last-child { margin-bottom: 0; }
+  .cv-top,
+  .photo-cell {
+    background: #0f4c81 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
 
-  .side-heading {
-    font-size: 9.5px;
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: #333;
-    border-bottom: 1.5px solid #aaa;
-    padding-bottom: 4px;
-    margin-bottom: 10px;
-  }
-
-  /* contact */
-  .contact-list { list-style: none; }
-  .contact-list li {
-    font-size: 10px;
-    color: #333;
-    margin-bottom: 8px;
-    line-height: 1.4;
-    display: flex;
-    gap: 6px;
-    align-items: flex-start;
-  }
-  .contact-list li .icon {
-    width: 12px;
-    height: 12px;
-    flex-shrink: 0;
-    margin-top: 1px;
-    fill: #555;
-  }
-  .contact-list li .text { word-break: break-all; }
-
-  /* skills */
-  .skills-list { list-style: none; }
-  .skills-list li {
-    font-size: 10px;
-    color: #333;
-    padding: 3px 0;
-    border-bottom: 1px dotted #ccc;
-    line-height: 1.4;
-  }
-  .skills-list li:last-child { border-bottom: none; }
-
-  /* languages */
-  .lang-item { margin-bottom: 7px; }
-  .lang-item .lang-name {
-    font-size: 10.5px;
-    font-weight: 700;
-    color: #111;
-  }
-  .lang-item .lang-level {
-    font-size: 9.5px;
-    color: #666;
-    margin-top: 1px;
+/* RESPONSIVE */
+@media (max-width: 860px) {
+  body {
+    background: #fff;
   }
 
-  /* RIGHT */
+  .page {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .cv-top {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .photo-cell {
+    padding: 20px 14px 10px;
+  }
+
+  .cv-body {
+    grid-template-columns: 1fr;
+  }
+
   .main {
-    padding: 22px 26px 28px 22px;
-    border-left: 1px solid #ddd;
+    border-left: none;
+    border-top: 1px solid #cfdfee;
+    padding: 16px 14px;
   }
 
-  .main-section { margin-bottom: 18px; }
-  .main-section:last-child { margin-bottom: 0; }
-
-  .main-heading {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #222;
-    border-bottom: 1.5px solid #222;
-    padding-bottom: 3px;
-    margin-bottom: 10px;
-  }
-
-  .summary-text {
+  #print-btn {
+    top: 8px;
+    right: 8px;
+    padding: 6px 10px;
     font-size: 11px;
-    color: #333;
-    line-height: 1.65;
   }
+}
+ 
+ 
 
-  /* education (right side) */
-  .edu-item { margin-bottom: 13px; }
-  .edu-item:last-child { margin-bottom: 0; }
-  .edu-degree {
-    font-size: 11.5px;
-    font-weight: 700;
-    color: #111;
-    line-height: 1.35;
-  }
-  .edu-inst {
-    font-size: 10.5px;
-    color: #444;
-    margin-top: 2px;
-    line-height: 1.35;
-  }
-  .edu-year {
-    font-size: 9.5px;
-    color: #888;
-    font-style: italic;
-    margin-top: 2px;
-  }
-  .edu-detail {
-    font-size: 10.5px;
-    color: #333;
-    margin-top: 4px;
-    line-height: 1.5;
-  }
-  .edu-detail strong { color: #111; }
 
-  /* work */
-  .job { margin-bottom: 14px; }
-  .job:last-child { margin-bottom: 0; }
-  .job-title {
-    font-size: 11.5px;
-    font-weight: 700;
-    color: #111;
-  }
-  .job-company {
-    font-size: 11px;
-    color: #444;
-    margin-top: 1px;
-  }
-  .job-period {
-    font-size: 9.5px;
-    color: #888;
-    font-style: italic;
-    margin-top: 1px;
-    margin-bottom: 5px;
-  }
-  .job-duties { padding-left: 14px; }
-  .job-duties li {
-    font-size: 10.5px;
-    color: #333;
-    margin-bottom: 3px;
-    line-height: 1.5;
-  }
 
-  /* certs */
-  .cert-item { margin-bottom: 9px; }
-  .cert-item:last-child { margin-bottom: 0; }
-  .cert-name {
-    font-size: 11px;
-    font-weight: 700;
-    color: #111;
-  }
-  .cert-org {
-    font-size: 10px;
-    color: #666;
-    margin-top: 1px;
-  }
 
-  .ref-text {
-    font-size: 10.5px;
-    color: #555;
-    font-style: italic;
-  }
-
-  /* PRINT */
-  @media print {
-    @page { size: A4; margin: 0; }
-    body { background: #fff; }
-    #print-btn { display: none !important; }
-    .page { width: 100%; margin: 0; }
-    .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #f0f0f0 !important; }
-    .cv-top { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #3a3a3a !important; }
-    .photo-cell { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #3a3a3a !important; }
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 860px) {
-    body { background: #fff; }
-    .page { width: 100%; margin: 0; }
-  }
-  @media (max-width: 600px) {
-    .cv-top { grid-template-columns: 1fr; text-align: center; }
-    .photo-cell { padding: 20px 14px 10px; }
-    .cv-body { grid-template-columns: 1fr; }
-    .main { border-left: none; border-top: 1px solid #ddd; padding: 16px 14px; }
-    #print-btn { top: 8px; right: 8px; padding: 6px 10px; font-size: 11px; }
-  }
 </style>
+
+
+
+
+
+
+
+
 </head>
 <body>
 
